@@ -14,8 +14,8 @@ model MV_CanopyTranspiration
   Real LAI = 1 "Leaf Area Index"
     annotation (Dialog(group="Varying inputs"));
 //  Modelica.SIunits.Velocity u = 0.04 "Local air velocity"   annotation (Dialog(group="Varying inputs",enable=not rb_constant));
-//  Modelica.SIunits.HeatFlux I_g = 300 "outside global solar radiation"  annotation (Dialog(group="Varying inputs"));
-  Modelica.SIunits.HeatFlux R_can = 100 "Global irradiation above the canopy"  annotation (Dialog(group="Varying inputs"));
+//  Modelica.Units.SI.HeatFlux I_g = 300 "outside global solar radiation"  annotation (Dialog(group="Varying inputs"));
+  Modelica.Units.SI.HeatFlux R_can = 100 "Global irradiation above the canopy"  annotation (Dialog(group="Varying inputs"));
 
   Modelica.SIunits.Temperature T_can=300 "Temperature of the canopy (port a)"
     annotation (Dialog(group="Varying inputs"));

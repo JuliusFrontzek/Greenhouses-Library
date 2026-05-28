@@ -1,7 +1,7 @@
 within Greenhouses.ControlSystems.Climate;
 model Control_ThScreen_basic "Controller for the thermal screen closure"
-  Modelica.SIunits.HeatFlux R_Glob_can=0 annotation(Dialog(group="Varying inputs"));
-  Modelica.SIunits.HeatFlux R_Glob_can_min=32 annotation(Dialog(group="Varying inputs"));
+  Modelica.Units.SI.HeatFlux R_Glob_can=0 annotation(Dialog(group="Varying inputs"));
+  Modelica.Units.SI.HeatFlux R_Glob_can_min=32 annotation(Dialog(group="Varying inputs"));
 
   Integer op;
   Integer cl;

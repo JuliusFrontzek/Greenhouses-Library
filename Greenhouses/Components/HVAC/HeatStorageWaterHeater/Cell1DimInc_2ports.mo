@@ -93,13 +93,13 @@ model Cell1DimInc_2ports
     "Enthalpy state variable at inlet node";
   Modelica.SIunits.SpecificEnthalpy hnode_ex(start=hstart)
     "Enthalpy state variable at outlet node";
-  Modelica.SIunits.HeatFlux qdot "heat flux at each cell";
+  Modelica.Units.SI.HeatFlux qdot "heat flux at each cell";
   //   Modelica.SIunits.CoefficientOfHeatTransfer U
   //     "Heat transfer coefficient between wall and working fluid";
   Modelica.SIunits.Power Q_tot "Total heat flux exchanged by the thermal port";
   Modelica.SIunits.Mass M_tot "Total mass of the fluid in the component";
 
-  Modelica.SIunits.HeatFlux qdot_hx;
+  Modelica.Units.SI.HeatFlux qdot_hx;
 
   /***********************************  EQUATIONS ************************************/
 

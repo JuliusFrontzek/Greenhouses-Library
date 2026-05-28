@@ -21,18 +21,18 @@ model Illumination "Artificial Illumination of the greenhouse"
     annotation (Dialog(group="Varying inputs"));
 
   /******************** Variables ********************/
-  Modelica.SIunits.HeatFlux R_NIR "near infrared radiation";
-  Modelica.SIunits.HeatFlux R_PAR "visible light";
+  Modelica.Units.SI.HeatFlux R_NIR "near infrared radiation";
+  Modelica.Units.SI.HeatFlux R_PAR "visible light";
   Real tau_CF_NIR;
   Real rho_CF_NIR;
   Real alpha_CanNIR;
   Real alpha_FlrNIR;
-  Modelica.SIunits.HeatFlux R_IluCan_PAR;
-  Modelica.SIunits.HeatFlux R_FlrCan_PAR;
-  Modelica.SIunits.HeatFlux R_IluCan_NIR;
-  Modelica.SIunits.HeatFlux R_IluFlr_PAR;
-  Modelica.SIunits.HeatFlux R_IluFlr_NIR;
-  Modelica.SIunits.HeatFlux R_PAR_Can;
+  Modelica.Units.SI.HeatFlux R_IluCan_PAR;
+  Modelica.Units.SI.HeatFlux R_FlrCan_PAR;
+  Modelica.Units.SI.HeatFlux R_IluCan_NIR;
+  Modelica.Units.SI.HeatFlux R_IluFlr_PAR;
+  Modelica.Units.SI.HeatFlux R_IluFlr_NIR;
+  Modelica.Units.SI.HeatFlux R_PAR_Can;
   Real P(unit="W/m2");
   Modelica.SIunits.Power W_el;
   Real eta_GlobPAR(unit="umol/J")= 1.8

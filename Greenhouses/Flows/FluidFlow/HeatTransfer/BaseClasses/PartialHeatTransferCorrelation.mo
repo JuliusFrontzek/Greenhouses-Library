@@ -4,7 +4,7 @@ partial model PartialHeatTransferCorrelation
       extends Greenhouses.Icons.HeatTransfer;
 
   input Modelica.SIunits.MassFlowRate m_dot "Inlet massflow";
-  input Modelica.SIunits.HeatFlux q_dot "Heat flow rate per area [W/m2]";
+  input Modelica.Units.SI.HeatFlux q_dot "Heat flow rate per area [W/m2]";
 
   output Modelica.SIunits.CoefficientOfHeatTransfer U;
 

@@ -1,8 +1,8 @@
 within Greenhouses.ControlSystems.Climate;
 model Control_ThScreen
   "Controller for the thermal screen closure including a crack for dehumidification (of 2% and 4%)"
-  Modelica.SIunits.HeatFlux R_Glob_can=0 annotation(Dialog(group="Varying inputs"));
-  Modelica.SIunits.HeatFlux R_Glob_can_min=32 annotation(Dialog(group="Varying inputs"));
+  Modelica.Units.SI.HeatFlux R_Glob_can=0 annotation(Dialog(group="Varying inputs"));
+  Modelica.Units.SI.HeatFlux R_Glob_can_min=32 annotation(Dialog(group="Varying inputs"));
 
   Integer op;
   Integer cl;
