@@ -7,13 +7,15 @@ model SinkP "Pressure sink"
       annotation (choicesAllMatching = true);
   parameter Modelica.Units.SI.Pressure p0=1.01325e5 "Nominal pressure";
   parameter Modelica.Units.SI.SpecificEnthalpy h=1e5 "Nominal specific enthalpy";
+  parameter Boolean use_in_p0 = false "if true, pressure set by connector in_p0";
+  parameter Boolean use_in_h = false "if true, enthalpy set by connector in_h";
   Modelica.Units.SI.Pressure p;
-  Modelica.Blocks.Interfaces.RealInput in_p0 annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput in_p0 if use_in_p0 annotation (Placement(
         transformation(
         origin={-40,88},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Blocks.Interfaces.RealInput in_h annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput in_h if use_in_h annotation (Placement(
         transformation(
         origin={40,88},
         extent={{-20,-20},{20,20}},
@@ -22,14 +24,16 @@ model SinkP "Pressure sink"
         Medium) annotation (Placement(transformation(extent={{-94,-10},{-74,10}}),
         iconTransformation(extent={{-94,-10},{-74,10}})));
 equation
-  flangeB.p = p;
-  p = in_p0;
-  if cardinality(in_p0) == 0 then
-    in_p0 = p0 "Pressure set by parameter";
+  if use_in_p0 then
+    p = in_p0;
+  else
+    p = p0;
   end if;
-  flangeB.h_outflow = in_h;
-  if cardinality(in_h) == 0 then
-    in_h = h "Enthalpy set by parameter";
+  flangeB.p = p;
+  if use_in_h then
+    flangeB.h_outflow = in_h;
+  else
+    flangeB.h_outflow = h;
   end if;
     annotation (Placement(transformation(extent={{-108,-10},{-88,10}})),
     Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{100,

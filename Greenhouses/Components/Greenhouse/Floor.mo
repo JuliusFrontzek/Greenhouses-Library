@@ -37,11 +37,6 @@ public
         rotation=-90,
         origin={-60,40})));
 equation
-  if cardinality(R_Flr_Glob)==0 then
-    for i in 1:N_rad loop
-      R_Flr_Glob[i]=0;
-    end for;
-  end if;
   P_Flr = sum(R_Flr_Glob)*A;
 
   // Balance on the floor

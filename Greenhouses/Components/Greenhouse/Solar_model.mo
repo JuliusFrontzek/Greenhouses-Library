@@ -91,10 +91,6 @@ model Solar_model "Global, PAR and NIR heat fluxes"
         transformation(extent={{100,-110},{120,-90}}), iconTransformation(
           extent={{100,-110},{120,-90}})));
 equation
-  if cardinality(I_glob)==0 then
-    I_glob=0;
-  end if;
-
   //Paremeters characteristic of the greenhouse components
   // Cover: Multi-layer model Roof-ThermalScreen
   (tau_ML_covPAR,rho_ML_covPAR) = .Greenhouses.Functions.MultiLayer_TauRho(

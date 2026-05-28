@@ -14,15 +14,16 @@ model PrescribedCO2Flow "Fixed CO2 flow boundary condition"
 
   Greenhouses.Interfaces.CO2.CO2Port_b port annotation (Placement(
         transformation(extent={{90,-10},{110,10}}, rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput U_MCext
+  parameter Boolean use_U_MCext = false "if true, control signal set by connector U_MCext";
+  Modelica.Blocks.Interfaces.RealInput U_MCext if use_U_MCext
     annotation (Placement(transformation(extent={{-142,-18},{-102,22}})));
 equation
-  if cardinality(U_MCext)==0 then
-    U_MCext = U_ExtCO2;
-  end if;
-
   port.MC_flow = -MC_flow;
-  MC_flow = U_MCext*phi_ExtCO2/3600*1000;
+  if use_U_MCext then
+    MC_flow = U_MCext*phi_ExtCO2/3600*1000;
+  else
+    MC_flow = U_ExtCO2*phi_ExtCO2/3600*1000;
+  end if;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

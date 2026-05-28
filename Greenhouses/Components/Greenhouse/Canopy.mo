@@ -49,11 +49,6 @@ public
         transformation(extent={{-50,60},{-10,100}}), iconTransformation(extent=
             {{-50,60},{-10,100}})));
 equation
-  if cardinality(R_Can_Glob)==0 then
-    for i in 1:N_rad loop
-      R_Can_Glob[i]=0;
-    end for;
-  end if;
   P_Can = sum(R_Can_Glob)*A;
 
   // Long-wave radiation model

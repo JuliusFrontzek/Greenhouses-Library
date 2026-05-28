@@ -44,9 +44,6 @@ public
         rotation=-90,
         origin={-70,40})));
 equation
-  if cardinality(R_SunCov_Glob)==0 then
-    R_SunCov_Glob=0;
-  end if;
   V=h_cov*A/cos(phi);
 
   P_SunCov = R_SunCov_Glob*A;

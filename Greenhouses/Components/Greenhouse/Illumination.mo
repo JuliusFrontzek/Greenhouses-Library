@@ -68,10 +68,6 @@ model Illumination "Artificial Illumination of the greenhouse"
         rotation=-90,
         origin={-60,-70})));
 equation
-  if cardinality(switch)==0 then
-    switch=0;
-  end if;
-
   if power_input then
     P=p_el;
   else

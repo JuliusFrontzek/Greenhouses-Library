@@ -14,8 +14,11 @@ model SourceMdot "Flowrate source for fluid flows"
   parameter Modelica.Units.SI.Temperature T_0=298.15
     "Temperature if no connector"                                                 annotation (Dialog(enable=UseT));
   parameter Modelica.Units.SI.SpecificEnthalpy h_0=0 "Enthalpy if no connector" annotation (Dialog(enable=not UseT));
+  parameter Boolean use_in_Mdot = false "if true, flow rate set by connector in_Mdot";
+  parameter Boolean use_in_T = false "if true, temperature set by connector in_T";
+  parameter Boolean use_in_h = false "if true, enthalpy set by connector in_h";
   Modelica.Units.SI.SpecificEnthalpy h "specific enthalpy";
-  Modelica.Blocks.Interfaces.RealInput in_Mdot annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput in_Mdot if use_in_Mdot annotation (Placement(
         transformation(
         origin={-40,60},
         extent={{-20,-20},{20,20}},
@@ -23,7 +26,7 @@ model SourceMdot "Flowrate source for fluid flows"
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-60,60})));
-  Modelica.Blocks.Interfaces.RealInput in_h annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput in_h if use_in_h annotation (Placement(
         transformation(
         origin={40,60},
         extent={{-20,-20},{20,20}},
@@ -31,7 +34,7 @@ model SourceMdot "Flowrate source for fluid flows"
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={60,60})));
-  Modelica.Blocks.Interfaces.RealInput in_T annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput in_T if use_in_T annotation (Placement(
         transformation(
         origin={2,60},
         extent={{-20,-20},{20,20}},
@@ -43,22 +46,25 @@ model SourceMdot "Flowrate source for fluid flows"
         Medium)
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 equation
-  flangeB.m_flow = -in_Mdot;
-  if cardinality(in_Mdot) == 0 then
-    in_Mdot = Mdot_0 "Flow rate set by parameter";
-  end if;
-  if cardinality(in_T) == 0 then
-    in_T = T_0 "Temperature set by parameter";
+  if use_in_Mdot then
+    flangeB.m_flow = -in_Mdot;
+  else
+    flangeB.m_flow = -Mdot_0;
   end if;
   if UseT then
-    h = Medium.specificEnthalpy_pTX(p,in_T,fill(0.0,Medium.nX));
+    if use_in_T then
+      h = Medium.specificEnthalpy_pTX(p,in_T,fill(0.0,Medium.nX));
+    else
+      h = Medium.specificEnthalpy_pTX(p,T_0,fill(0.0,Medium.nX));
+    end if;
     flangeB.h_outflow = h;
   else
-    flangeB.h_outflow = in_h;
+    if use_in_h then
+      flangeB.h_outflow = in_h;
+    else
+      flangeB.h_outflow = h_0;
+    end if;
     h = 0;
-  end if;
-  if cardinality(in_h) == 0 then
-    in_h = h_0 "Enthalpy set by parameter";
   end if;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={

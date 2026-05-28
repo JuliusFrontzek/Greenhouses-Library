@@ -113,9 +113,6 @@ model HeatPump_ConsoClim
         Medium1)
     annotation (Placement(transformation(extent={{14,26},{30,38}})));
 equation
-  if cardinality(on_off)==0 then
-    on_off = true "Pressure set by parameter";
-  end if;
   assert(fluid.T < Tmax,"Maximum temperature reached at the heat pump outlet");
   firstOrder.u= if on_off then 1 else 0;
   m_dot_ev = Supply_ev.m_flow;

@@ -11,6 +11,7 @@ model Pump_Mdot "Pump model - Prescribed mass flow rate"
   /***************************************** PARAMETERS *****************************************/
   parameter Modelica.Units.SI.MassFlowRate Mdot_0 = 1
     "Mass flow if external signal not connected";
+  parameter Boolean use_flow_in = false "if true, flow rate set by connector flow_in";
   parameter Real eta_is=1 "Overall Isentropic efficiency of the pump";
   parameter Boolean NeglectDELTAh=true
     "if true, neglects the enthalpy difference due to the compression";
@@ -29,7 +30,7 @@ model Pump_Mdot "Pump model - Prescribed mass flow rate"
                                               redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{36,54},{76,94}}),
         iconTransformation(extent={{36,54},{76,94}})));
-  Modelica.Blocks.Interfaces.RealInput flow_in
+  Modelica.Blocks.Interfaces.RealInput flow_in if use_flow_in
                                             annotation (Placement(
         transformation(extent={{-96,30},{-56,70}}), iconTransformation(
         extent={{-12,-12},{12,12}},
@@ -37,9 +38,10 @@ model Pump_Mdot "Pump model - Prescribed mass flow rate"
         origin={-32,80})));
 
 equation
-  Mdot = flow_in;
-  if cardinality(flow_in) == 0 then
-    flow_in = Mdot_0;
+  if use_flow_in then
+    Mdot = flow_in;
+  else
+    Mdot = Mdot_0;
   end if;
 
   h = noEvent(if Mdot <= 0 then inStream(outlet.h_outflow) else inStream(inlet.h_outflow));

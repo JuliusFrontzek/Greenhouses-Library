@@ -171,10 +171,6 @@ SummaryClass Summary( T_profile( n=N, Tsf = Tsf_,  Twall = Twall_, Twf = cell1Di
             -36,24},{-46,34}})));
 equation
 
-  if cardinality(R_on_off)==0 then
-    R_on_off = false "Thermal resistance is desactivated by default";
-  end if;
-
 /* Connection of the different cell of the tank in series */
   for i in 1:N - 1 loop
     connect(cell1DimInc_hx[i].OutFlow, cell1DimInc_hx[i + 1].InFlow);

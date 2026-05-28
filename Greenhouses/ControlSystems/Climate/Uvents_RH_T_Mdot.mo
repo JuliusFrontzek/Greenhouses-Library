@@ -14,7 +14,8 @@ model Uvents_RH_T_Mdot
   Modelica.Blocks.Interfaces.RealOutput y
     annotation (Placement(transformation(extent={{100,-10},{120,10}}),
         iconTransformation(extent={{100,-10},{120,10}})));
-  Modelica.Blocks.Interfaces.RealInput RH_air
+  parameter Boolean use_RH_air = false "if true, relative humidity set by connector RH_air";
+  Modelica.Blocks.Interfaces.RealInput RH_air if use_RH_air
     annotation (Placement(transformation(extent={{-120,40},{-80,80}})));
   Greenhouse.ControlSystems.PID                   PID(
     PVstart=0.5,
@@ -56,11 +57,11 @@ model Uvents_RH_T_Mdot
   Modelica.Blocks.Sources.RealExpression Tair_setpoint1(y=T_air_sp + 2)
     annotation (Placement(transformation(extent={{-60,-66},{-40,-46}})));
 equation
-  if cardinality(RH_air)==0 then
-    RH_air=RH_air_input;
+  if use_RH_air then
+    PID.PV = RH_air;
+  else
+    PID.PV = RH_air_input;
   end if;
-
-  PID.PV=RH_air;
   PIDT.PV=T_air;
   PIDT_noH.PV=T_air;
 

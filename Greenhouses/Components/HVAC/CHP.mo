@@ -98,9 +98,6 @@ equation
   Wdot_el= firstOrder.y*firstOrder.u* Wdot;
   prescribedHeatFlow.Q_flow = firstOrder.y*firstOrder.u* Qdot;
   Qdot_gas = firstOrder.y*firstOrder.u* HeatSource.Q_flow;
-  if cardinality(on_off)==0 then
-    on_off = true "Pressure set by parameter";
-  end if;
   assert(fluid.T < Tmax,"Maximum temperature reached at the heat pump outlet");
   firstOrder.u= if on_off then 1 else 0;
   connect(fluid.Wall_int, heatPortConverter.thermalPortL) annotation (Line(
