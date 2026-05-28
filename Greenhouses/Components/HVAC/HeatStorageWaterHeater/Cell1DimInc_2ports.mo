@@ -21,17 +21,17 @@ model Cell1DimInc_2ports
 
   /************ Geometric characteristics **************/
   constant Real pi=Modelica.Constants.pi "pi-greco";
-  parameter Modelica.SIunits.Volume Vi "Volume of a single cell";
-  parameter Modelica.SIunits.Area Ai "Lateral surface of a single cell";
-  parameter Modelica.SIunits.MassFlowRate Mdotnom "Nominal fluid flow rate";
-  parameter Modelica.SIunits.CoefficientOfHeatTransfer Unom;
-  parameter Modelica.SIunits.CoefficientOfHeatTransfer Unom_hx
+  parameter Modelica.Units.SI.Volume Vi "Volume of a single cell";
+  parameter Modelica.Units.SI.Area Ai "Lateral surface of a single cell";
+  parameter Modelica.Units.SI.MassFlowRate Mdotnom "Nominal fluid flow rate";
+  parameter Modelica.Units.SI.CoefficientOfHeatTransfer Unom;
+  parameter Modelica.Units.SI.CoefficientOfHeatTransfer Unom_hx
     "Nominal Heat transfer coefficient ";
 
-  parameter Modelica.SIunits.Area A_hx;
+  parameter Modelica.Units.SI.Area A_hx;
 
   /************ FLUID INITIAL VALUES ***************/
-  parameter Modelica.SIunits.Pressure pstart "Fluid pressure start value"
+  parameter Modelica.Units.SI.Pressure pstart "Fluid pressure start value"
     annotation (Dialog(tab="Initialization"));
   parameter Medium.SpecificEnthalpy hstart=1E5 "Start value of enthalpy"
     annotation (Dialog(tab="Initialization"));
@@ -83,21 +83,21 @@ model Cell1DimInc_2ports
   /***************  VARIABLES ******************/
   Medium.ThermodynamicState fluidState;
   Medium.AbsolutePressure p(start=pstart);
-  Modelica.SIunits.MassFlowRate M_dot(start=Mdotnom);
+  Modelica.Units.SI.MassFlowRate M_dot(start=Mdotnom);
   Medium.SpecificEnthalpy h(start=hstart, stateSelect=StateSelect.always)
     "Fluid specific enthalpy at the cells";
   Medium.Temperature T "Fluid temperature";
-  //Modelica.SIunits.Temperature T_wall "Internal wall temperature";
+  //Modelica.Units.SI.Temperature T_wall "Internal wall temperature";
   Medium.Density rho "Fluid cell density";
-  Modelica.SIunits.SpecificEnthalpy hnode_su(start=hstart)
+  Modelica.Units.SI.SpecificEnthalpy hnode_su(start=hstart)
     "Enthalpy state variable at inlet node";
-  Modelica.SIunits.SpecificEnthalpy hnode_ex(start=hstart)
+  Modelica.Units.SI.SpecificEnthalpy hnode_ex(start=hstart)
     "Enthalpy state variable at outlet node";
   Modelica.Units.SI.HeatFlux qdot "heat flux at each cell";
-  //   Modelica.SIunits.CoefficientOfHeatTransfer U
+  //   Modelica.Units.SI.CoefficientOfHeatTransfer U
   //     "Heat transfer coefficient between wall and working fluid";
-  Modelica.SIunits.Power Q_tot "Total heat flux exchanged by the thermal port";
-  Modelica.SIunits.Mass M_tot "Total mass of the fluid in the component";
+  Modelica.Units.SI.Power Q_tot "Total heat flux exchanged by the thermal port";
+  Modelica.Units.SI.Mass M_tot "Total mass of the fluid in the component";
 
   Modelica.Units.SI.HeatFlux qdot_hx;
 

@@ -16,7 +16,7 @@ partial model PartialHeatTransfer
 
     //Variables
 
-    Modelica.SIunits.Temperature[n] T_fluid = Medium.temperature(FluidState)
+    Modelica.Units.SI.Temperature[n] T_fluid = Medium.temperature(FluidState)
     "Temperature of the fluid for the heat transfer process";
 
   Greenhouses.Interfaces.Heat.ThermalPortL[n] thermalPortL annotation (

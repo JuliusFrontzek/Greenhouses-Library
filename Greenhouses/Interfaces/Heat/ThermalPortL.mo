@@ -1,6 +1,6 @@
 within Greenhouses.Interfaces.Heat;
 connector ThermalPortL "Distributed Heat Terminal"
-  Modelica.SIunits.Temperature T "Temperature";
+  Modelica.Units.SI.Temperature T "Temperature";
   flow Modelica.Units.SI.HeatFlux phi "Heat flux";
   annotation (Diagram(graphics), Icon(graphics={
                                 Rectangle(

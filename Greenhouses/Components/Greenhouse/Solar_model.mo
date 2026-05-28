@@ -2,7 +2,7 @@
 model Solar_model "Global, PAR and NIR heat fluxes"
 
   /********************* Parameters ***********************/
-  parameter Modelica.SIunits.Area A "floor surface";
+  parameter Modelica.Units.SI.Area A "floor surface";
   parameter Real eta_glob_air=0.1
     "Ratio of global radiation absorbed by greenhouse construction elements";
 
@@ -48,10 +48,10 @@ model Solar_model "Global, PAR and NIR heat fluxes"
   Modelica.Units.SI.HeatFlux R_SunFlr_PAR;
   Modelica.Units.SI.HeatFlux R_SunFlr_NIR;
 
-  Modelica.SIunits.Power P_SunCov_Glob;
-  Modelica.SIunits.Power P_SunCan_Glob;
-  Modelica.SIunits.Power P_SunAir_Glob;
-  Modelica.SIunits.Power P_SunFlr_Glob;
+  Modelica.Units.SI.Power P_SunCov_Glob;
+  Modelica.Units.SI.Power P_SunCan_Glob;
+  Modelica.Units.SI.Power P_SunAir_Glob;
+  Modelica.Units.SI.Power P_SunFlr_Glob;
 
   Real tau_CF_NIR;
   Real rho_CF_NIR;

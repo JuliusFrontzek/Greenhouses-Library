@@ -3,7 +3,7 @@ function SaturatedVapourPressure "Saturated vapour pressure at any temperature"
 
   input Real TSat(unit="degC",displayUnit="degC",
                                           nominal=20) "Saturation temperature";
-  output Modelica.SIunits.Pressure pSat(displayUnit="Pa",
+  output Modelica.Units.SI.Pressure pSat(displayUnit="Pa",
                                           nominal=1e5) "Saturation pressure";
 
 algorithm

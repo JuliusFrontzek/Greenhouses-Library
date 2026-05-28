@@ -4,20 +4,20 @@ model HeatingPipe
   /******************** Parameters ********************/
   parameter Integer N_p(min=1)=1 "number of cells in parallel";
   parameter Integer N(min=1)=2 "number of cells";
-  //parameter Modelica.SIunits.Temperature T_inlet_min
+  //parameter Modelica.Units.SI.Temperature T_inlet_min
   //  "Pipe Fluid Minimum Inlet Temperature";
-  parameter Modelica.SIunits.Diameter d "pipe diameter";
-  parameter Modelica.SIunits.Length l "length of heating pipes";
-  parameter Modelica.SIunits.Area A "Greenhouse floor surface";
+  parameter Modelica.Units.SI.Diameter d "pipe diameter";
+  parameter Modelica.Units.SI.Length l "length of heating pipes";
+  parameter Modelica.Units.SI.Area A "Greenhouse floor surface";
   parameter Boolean freePipe=true
     "true if pipe in free air, false if hindered pipe";
-  parameter Modelica.SIunits.MassFlowRate Mdotnom=0.528
+  parameter Modelica.Units.SI.MassFlowRate Mdotnom=0.528
     "Nominal mass flow rate of the pipes";
   /******************** Variables ********************/
-  Modelica.SIunits.Area A_PipeFloor "pipe external area";
+  Modelica.Units.SI.Area A_PipeFloor "pipe external area";
   Real c;
   Real FF;
-  //Modelica.SIunits.MassFlowRate Mdot;
+  //Modelica.Units.SI.MassFlowRate Mdot;
   /******************** Connectors ********************/
   Flows.FluidFlow.Flow1DimInc flow1DimInc(
     redeclare package Medium =

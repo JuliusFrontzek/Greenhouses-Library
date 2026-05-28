@@ -6,15 +6,15 @@ model Martin2010
   extends
     Greenhouses.Flows.FluidFlow.HeatTransfer.BaseClasses.PartialPlateHeatExchangerCorrelation;
 
-  parameter Modelica.SIunits.Length s_w(min=0,displayUnit="mm",nominal=0.00075) = 0.00075
+  parameter Modelica.Units.SI.Length s_w(min=0,displayUnit="mm",nominal=0.00075) = 0.00075
     "Wall thickness";
-  parameter Modelica.SIunits.ThermalConductivity lambda_w(min=0,nominal=15) = 15
+  parameter Modelica.Units.SI.ThermalConductivity lambda_w(min=0,nominal=15) = 15
     "Conductivity of the wall";
-  parameter Modelica.SIunits.Length L_p(min=0,displayUnit="cm",nominal=0.20) = 0.2
+  parameter Modelica.Units.SI.Length L_p(min=0,displayUnit="cm",nominal=0.20) = 0.2
     "Plate length";
-  parameter Modelica.SIunits.ReynoldsNumber Re_turb(min=0,nominal=2000.0) = 2000.00
+  parameter Modelica.Units.SI.ReynoldsNumber Re_turb(min=0,nominal=2000.0) = 2000.00
     "Flow transition Re";
-  parameter Modelica.SIunits.ReynoldsNumber Re_tran(min=0,nominal=100.0) = 100.00
+  parameter Modelica.Units.SI.ReynoldsNumber Re_tran(min=0,nominal=100.0) = 100.00
     "Flow transition range";
   parameter Real c_q(min=0,nominal=0.10) = 0.122 "Empirical constant";
   parameter Real   q(min=0,nominal=0.35) = 0.374 "Empirical constant";
@@ -36,9 +36,9 @@ model Martin2010
   parameter Real   c(min=0,nominal=0.36) = 0.360
     "Empirical pressure drop factor c";
 
-  Modelica.SIunits.ReynoldsNumber Re(min=0);
-  Modelica.SIunits.PrandtlNumber Pr(min=0);
-  Modelica.SIunits.NusseltNumber Nu(min=0);
+  Modelica.Units.SI.ReynoldsNumber Re(min=0);
+  Modelica.Units.SI.PrandtlNumber Pr(min=0);
+  Modelica.Units.SI.NusseltNumber Nu(min=0);
   Real Hg(min=0) "Hagen number";
   Real xi(min=0) "Friction factor";
   Real xi_0(min=0);
@@ -48,9 +48,9 @@ model Martin2010
   Real xi_1_lam(min=0);
   Real xi_1_tur(min=0) "Friction factor, 90 deg";
   Real lamTurb(min=0,max=1,nominal=0.5) "Laminar or turbulent flow";
-  Modelica.SIunits.Velocity w "Fluid velocity";
-  //Modelica.SIunits.Area A_0(min=0) "Plate projection";
-  //Modelica.SIunits.Area A_p(min=0) "Plate surface";
+  Modelica.Units.SI.Velocity w "Fluid velocity";
+  //Modelica.Units.SI.Area A_0(min=0) "Plate projection";
+  //Modelica.Units.SI.Area A_p(min=0) "Plate surface";
 
   Medium.Density rho;
   Medium.Temperature T;
@@ -61,9 +61,9 @@ model Martin2010
   Medium.ThermalConductivity lambda;
   Medium.ThermodynamicState state_f_w "Thermodynamic state at wall";
   Medium.AbsolutePressure delta_p;
-  Modelica.SIunits.VolumeFlowRate V_dot "Volume flow";
-  //Modelica.SIunits.HeatFlowRate Q_dot "Heat flow";
-  //Modelica.SIunits.CoefficientOfHeatTransfer alpha;
+  Modelica.Units.SI.VolumeFlowRate V_dot "Volume flow";
+  //Modelica.Units.SI.HeatFlowRate Q_dot "Heat flow";
+  //Modelica.Units.SI.CoefficientOfHeatTransfer alpha;
 
   Real part1;
   Real part2;

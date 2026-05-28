@@ -4,10 +4,10 @@ model MV_cnv_condensation
   extends Greenhouses.Interfaces.Vapour.Element1D;
 
   /*********************** Parameters ***********************/
-  parameter Modelica.SIunits.Area A "floor surface";
+  parameter Modelica.Units.SI.Area A "floor surface";
 
   /*********************** Varying inputs ***********************/
-  Modelica.SIunits.CoefficientOfHeatTransfer HEC_ab=0
+  Modelica.Units.SI.CoefficientOfHeatTransfer HEC_ab=0
     "Heat transfer coefficient between nodes a and b, provided by the adecuate model in HeatTransfer folder"
                                                                                                         annotation (Dialog(group="Varying inputs"));
   /*********************** Variables ***********************/

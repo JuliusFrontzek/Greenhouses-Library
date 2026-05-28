@@ -12,9 +12,9 @@ block SC_closing_value
   Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
 
-  //Modelica.SIunits.Time startTime;
+  //Modelica.Units.SI.Time startTime;
 protected
-  discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
+  discrete Modelica.Units.SI.Time entryTime "Time instant when u became true";
 public
   Utilities.SC_opening_closing SC_value(
     warmDay=warmDay,

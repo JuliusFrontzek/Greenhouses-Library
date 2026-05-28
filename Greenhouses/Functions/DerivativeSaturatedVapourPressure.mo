@@ -4,7 +4,7 @@ function DerivativeSaturatedVapourPressure
 
   input Real TSat(unit="degC",displayUnit="degC",
                                           nominal=20) "Saturation temperature";
-  output Modelica.SIunits.PressureCoefficient dpSat_dT(
+  output Modelica.Units.SI.PressureCoefficient dpSat_dT(
                                           displayUnit="Pa/K",
                                           nominal=1000)
     "Slope of saturation pressure";
