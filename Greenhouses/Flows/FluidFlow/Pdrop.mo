@@ -60,5 +60,5 @@ initial equation
     <p>This very simple model assumes a non-compressible flow for computing the pressure drop</p>
     <p>This model is an adapted version of the model Pdrop from ThermoCycle Library. In order to make it compatible with the Greenhouses library, the fluid ports have been replaced by the Modelica Standard Library fluidPort. </p>
 </HTML>",
-        uses(Modelica(version="3.2"))));
+        uses(Modelica(version="4.0.0"))));
 end Pdrop;
