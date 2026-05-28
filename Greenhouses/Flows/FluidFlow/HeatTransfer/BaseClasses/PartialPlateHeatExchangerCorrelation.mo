@@ -8,7 +8,7 @@ partial model PartialPlateHeatExchangerCorrelation
     "Corrugation amplitude"
   annotation (Dialog(group="Geometry"));
 
-  parameter Modelica.Units.SI.Angle phi(min=0,displayUnit="deg",nominal=1) = Modelica.Units.SI.Conversions.from_deg(45)
+  parameter Modelica.Units.SI.Angle phi(min=0,displayUnit="deg",nominal=1) = Modelica.Units.Conversions.from_deg(45)
     "Corrugation angle"
   annotation (Dialog(group="Geometry"));
   parameter Modelica.Units.SI.Length Lambda(min=0,displayUnit="mm",nominal=0.01) = 0.0126

@@ -62,10 +62,10 @@ equation
   commonTerm = Pr^(1/3) * ( eta/eta_f_w) ^(0.14);
   Nu_tur = (2.668e-1 - 6.967e-3*phi + 7.244e-5*phi^2)
   * ( 2.078e+1 - 5.094e+1*Phi + 4.116e+1*Phi^2 - 1.015e+1*Phi^3)
-  * Re^( 0.728+0.0543*sin( Modelica.Constants.pi * phi/Modelica.Units.SI.Conversions.from_deg(45) + 3.7))
+  * Re^( 0.728+0.0543*sin( Modelica.Constants.pi * phi/Modelica.Units.Conversions.from_deg(45) + 3.7))
   * commonTerm;
 
-  Nu_lam = 0.44*(phi/Modelica.Units.SI.Conversions.from_deg(30))^(0.38)
+  Nu_lam = 0.44*(phi/Modelica.Units.Conversions.from_deg(30))^(0.38)
   * Re^(1/2) * commonTerm;
 
   annotation (Documentation(info="<html>
