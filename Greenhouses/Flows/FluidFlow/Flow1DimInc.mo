@@ -50,7 +50,7 @@ parameter Modelica.Units.SI.Pressure pstart "Fluid pressure start value"
   parameter Medium.Temperature Tstart_outlet "Outlet temperature start value"
      annotation (Dialog(tab="Initialization"));
   parameter Medium.SpecificEnthalpy hstart[N]=linspace(
-        Medium.specificEnthalpy_pTX(pstart,Tstart_inlet,fill(0,0)),Medium.specificEnthalpy_pTX(pstart,Tstart_outlet,fill(0,0)),
+        Medium.specificEnthalpy_pTX(pstart,Tstart_inlet,fill(0.0,Medium.nX)),Medium.specificEnthalpy_pTX(pstart,Tstart_outlet,fill(0.0,Medium.nX)),
         N) "Start value of enthalpy vector (initialized by default)"
     annotation (Dialog(tab="Initialization"));
 /***************************************   NUMERICAL OPTIONS  ***************************************************/
